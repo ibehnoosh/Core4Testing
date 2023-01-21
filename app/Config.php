@@ -4,28 +4,29 @@ declare(strict_types = 1);
 
 namespace App;
 
-/**
- * @property-read ?array $db
- */
 class Config
 {
-    protected array $config = [];
-
-    public function __construct(array $env)
+    public function __construct(private readonly array $config)
     {
-        $this->config = [
-            'db' => [
-                'host'     => $env['DB_HOST'],
-                'user'     => $env['DB_USER'],
-                'pass'     => $env['DB_PASS'],
-                'database' => $env['DB_DATABASE'],
-                'driver'   => $env['DB_DRIVER'] ?? 'mysql',
-            ],
-        ];
     }
 
-    public function __get(string $name)
+    public function get(string $name, mixed $default = null): mixed
     {
-        return $this->config[$name] ?? null;
+        $path  = explode('.', $name);
+        $value = $this->config[array_shift($path)] ?? null;
+
+        if ($value === null) {
+            return $default;
+        }
+
+        foreach ($path as $key) {
+            if (! isset($value[$key])) {
+                return $default;
+            }
+
+            $value = $value[$key];
+        }
+
+        return $value;
     }
 }

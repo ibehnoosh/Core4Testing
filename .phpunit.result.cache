@@ -1,0 +1,1 @@
+{"version":1,"defects":[],"times":{"Tests\\Unit\\ConfigTest::testCheckBeAbleToGetNestedSetting":0.005,"Tests\\Unit\\ConfigTest::testGetDefaultValueWhenItIsNotDefine":0,"Tests\\Unit\\ConfigTest::testItReturnsNullByDefaultWhenSettingIsNnotFound":0.001}}
