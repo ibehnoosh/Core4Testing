@@ -17,7 +17,9 @@ use Doctrine\ORM\Mapping\Table;
 #[Table(name: 'shopping_cart_line')]
 class Line
 {
-    #[Id, Column(options: ['unsigned' => true]), GeneratedValue]
+    #[Id]
+    #[Column(type: 'integer')]
+    #[GeneratedValue]
     private $id;
 
     #[Column]

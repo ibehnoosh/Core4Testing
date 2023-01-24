@@ -2,7 +2,6 @@
 declare(strict_types = 1);
 namespace App\Entity;
 
-use App\Entity\ShoppingCart\Item;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\DBAL\Types\Types;
@@ -21,7 +20,9 @@ use Doctrine\ORM\Mapping\Table;
 #[HasLifecycleCallbacks]
 class Product
 {
-    #[Id, Column(options: ['unsigned' => true]), GeneratedValue]
+    #[Id]
+    #[Column(type: 'integer')]
+    #[GeneratedValue]
     private $id;
 
     #[Column(name: 'created_at')]

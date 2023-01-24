@@ -2,7 +2,6 @@
 declare(strict_types = 1);
 namespace App\Entity;
 
-use App\Entity\Product\Product;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
@@ -16,7 +15,9 @@ use Doctrine\ORM\Mapping\Table;
 #[Table(name: 'shopping_cart_item')]
 class Item
 {
-    #[Id, Column(options: ['unsigned' => true]), GeneratedValue]
+    #[Id]
+    #[Column(type: 'integer')]
+    #[GeneratedValue]
     private $id;
 
     #[Column(name: 'created_at')]

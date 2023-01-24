@@ -17,7 +17,9 @@ use Doctrine\ORM\Mapping\Table;
 #[HasLifecycleCallbacks]
 class ShoppingCart
 {
-    #[Id, Column(options: ['unsigned' => true]), GeneratedValue]
+    #[Id]
+    #[Column(type: 'integer')]
+    #[GeneratedValue]
     private $id;
 
     #[Column(name: 'created_at')]

@@ -1,0 +1,43 @@
+{% extends 'layout.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<form action="/category{% if edit.id %}/{{ edit.id }}{% endif %}" method="post">
+    {{ csrf.fields | raw }}
+
+    {% if edit.id %}
+        <input type="text" name="id" hidden value="{{ edit.id }}" />
+    {% endif %}
+    <input type="text" name="name" required  placeholder="Category Name" value="{{ edit.name }}" />
+    <button type="submit" class="btn btn-success">Save
+    </button>
+</form>
+
+    {% if categories %}
+        <div id="categoriesTable">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for category in categories %}
+                    <tr>
+                        <td>{{ category.name }}</td>
+                        <td><a href="/category/{{ category.id }}">Edit</a></td>
+                        <td>
+                            <form action="/category/{{ category.id }}" method="post">
+                                <input type="hidden" name="_METHOD" value="DELETE"/>
+                                <input type="submit" value="Delete"/>
+                            </form></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+    {% endblock %}

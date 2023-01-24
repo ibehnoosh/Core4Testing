@@ -16,7 +16,9 @@ use Doctrine\Common\Collections\Collection;
 #[Table(name: 'categories')]
 class Category
 {
-    #[Id, Column(options: ['unsigned' => true]), GeneratedValue]
+    #[Id]
+    #[Column(type: 'integer')]
+    #[GeneratedValue]
     private $id;
 
     #[Column(type: Types::STRING)]
