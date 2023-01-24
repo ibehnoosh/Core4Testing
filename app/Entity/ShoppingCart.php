@@ -1,6 +1,6 @@
 <?php
 declare(strict_types = 1);
-namespace App\Entity\ShoppingCart;
+namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -26,9 +26,6 @@ class ShoppingCart
     #[Column(name: 'updated_at')]
     private \DateTime $updatedAt;
 
-    /**
-     * One shoppingCart has many lines. This is the inverse side.
-     */
     #[OneToMany(targetEntity: Line::class, mappedBy: 'shopping_cart')]
     private Collection $lines;
 
@@ -42,7 +39,10 @@ class ShoppingCart
     {
         return $this->id;
     }
-
+    public function getLines(): Collection
+    {
+        return $this->lines;
+    }
     public function setUpdatedAt(\DateTime $updatedAt)
     {
         $this->updatedAt = $updatedAt;

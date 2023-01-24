@@ -1,6 +1,6 @@
 <?php
 declare(strict_types = 1);
-namespace App\Entity\ShoppingCart;
+namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -23,15 +23,11 @@ class Line
     #[Column]
     private string $name;
 
-    #[ManyToOne(targetEntity: ShoppingCart::class, inversedBy: 'lines')]
+    #[ManyToOne(targetEntity: ShoppingCart::class, inversedBy: 'shopping_cart_line')]
     #[JoinColumn(name: 'shopping_cart_id', referencedColumnName: 'id')]
-
     private ShoppingCart|null $shoppingCart = null;
 
-    /**
-     * One shoppingCart has many lines. This is the inverse side.
-     */
-    #[OneToMany(targetEntity: Item::class, mappedBy: 'shopping_cart_item')]
+    #[OneToMany(targetEntity: Item::class, mappedBy: 'shopping_cart_line')]
     private Collection $items;
 
 
@@ -55,9 +51,6 @@ class Line
         $this->name = $name;
     }
 
-    /**
-     * @return Collection
-     */
     public function getItems(): Collection
     {
         return $this->items;

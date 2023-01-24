@@ -1,6 +1,6 @@
 <?php
 declare(strict_types = 1);
-namespace App\Entity\ShoppingCart;
+namespace App\Entity;
 
 use App\Entity\Product\Product;
 use Doctrine\DBAL\Types\Types;
@@ -28,12 +28,12 @@ class Item
     #[Column(type: Types::INTEGER)]
     private $quantity;
 
-    #[ManyToOne(targetEntity: Line::class)]
+    #[ManyToOne(targetEntity: Line::class,inversedBy: 'shopping_cart_item')]
     #[JoinColumn(name: 'line_id', referencedColumnName: 'id')]
     private Line|int $shoppingCartLine;
 
 
-    #[ManyToOne(targetEntity: Product::class)]
+    #[ManyToOne(targetEntity: Product::class,inversedBy: 'shopping_cart_item')]
     #[JoinColumn(name: 'product_id', referencedColumnName: 'id')]
     private Product|int $shoppingCartProducts;
 

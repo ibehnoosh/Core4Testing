@@ -1,6 +1,6 @@
 <?php
 declare(strict_types = 1);
-namespace App\Entity\Product;
+namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\DBAL\Types\Types;
@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping\Table;
 use Doctrine\Common\Collections\Collection;
 
 #[Entity]
-#[Table(name: 'category')]
+#[Table(name: 'categories')]
 class Category
 {
     #[Id, Column(options: ['unsigned' => true]), GeneratedValue]

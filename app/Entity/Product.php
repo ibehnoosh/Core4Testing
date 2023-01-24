@@ -1,6 +1,6 @@
 <?php
 declare(strict_types = 1);
-namespace App\Entity\Product;
+namespace App\Entity;
 
 use App\Entity\ShoppingCart\Item;
 use Doctrine\Common\Collections\Collection;
@@ -33,7 +33,7 @@ class Product
     #[Column(type: Types::STRING)]
     private $name;
 
-    #[Column(type: Types::DECIMAL)]
+    #[Column(type: Types::DECIMAL, precision: 13,scale: 3)]
     private $price;
 
     #[Column(type: Types::INTEGER)]
@@ -43,7 +43,7 @@ class Product
     #[JoinTable(name: 'products_categories')]
     private Collection $categories;
 
-    #[OneToMany(targetEntity: Item::class, mappedBy: 'shopping_cart_item')]
+    #[OneToMany(targetEntity: Item::class, mappedBy: 'products')]
     private Collection $items;
 
 
