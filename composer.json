@@ -28,12 +28,10 @@
         "symfony/webpack-encore-bundle": "^1.15",
         "twig/intl-extra": "^3.4",
         "twig/twig": "^3.4",
-        "vlucas/phpdotenv": "^5.4",
-        "ext-mysql_xdevapi": "*"
+        "vlucas/phpdotenv": "^5.4"
     },
     "require-dev": {
         "phpmd/phpmd": "^2.13",
-        "phpunit/phpunit": "^9.5",
-        "squizlabs/php_codesniffer": "*"
+        "phpunit/phpunit": "^9.5"
     }
 }

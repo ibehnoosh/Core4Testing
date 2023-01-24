@@ -2,24 +2,64 @@
 declare(strict_types = 1);
 namespace App\Entity\ShoppingCart;
 
-use Doctrine\DBAL\Types\Types;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
+use Doctrine\ORM\Mapping\GeneratedValue;
+use Doctrine\ORM\Mapping\Id;
+use Doctrine\ORM\Mapping\JoinColumn;
+use Doctrine\ORM\Mapping\ManyToOne;
+use Doctrine\ORM\Mapping\OneToMany;
 use Doctrine\ORM\Mapping\Table;
 
 #[Entity]
 #[Table(name: 'shopping_cart_line')]
 class Line
 {
-    #[Column(type: Types::INTEGER)]
+    #[Id, Column(options: ['unsigned' => true]), GeneratedValue]
     private $id;
 
-    #[Column(name : 'id_shopping_cart' ,type: Types::INTEGER)]
-    private int $ShoppingCartId;
+    #[Column]
+    private string $name;
 
-    #[Column(name: 'created_at')]
-    private \DateTime $createdAt;
+    #[ManyToOne(targetEntity: ShoppingCart::class, inversedBy: 'lines')]
+    #[JoinColumn(name: 'shopping_cart_id', referencedColumnName: 'id')]
 
-    #[Column(name: 'updated_at')]
-    private \DateTime $updatedAt;
+    private ShoppingCart|null $shoppingCart = null;
+
+    /**
+     * One shoppingCart has many lines. This is the inverse side.
+     */
+    #[OneToMany(targetEntity: Item::class, mappedBy: 'shopping_cart_item')]
+    private Collection $items;
+
+
+    public function __construct()
+    {
+        $this->items = new ArrayCollection();
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getItems(): Collection
+    {
+        return $this->items;
+    }
 }
