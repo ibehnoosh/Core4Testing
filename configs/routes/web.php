@@ -13,7 +13,7 @@ return function (App $app) {
     $app->group('/category', function (RouteCollectorProxy $categories) {
         $categories->get('', [CategoryController::class, 'index']);
         $categories->post('', [CategoryController::class, 'store']);
-        $categories->delete('/{id:[0-9]+}', [CategoryController::class, 'delete']);
+        $categories->post('/delete/{id:[0-9]+}', [CategoryController::class, 'delete']);
         $categories->get('/{id:[0-9]+}', [CategoryController::class, 'get']);
         $categories->post('/{id:[0-9]+}', [CategoryController::class, 'update']);
     });

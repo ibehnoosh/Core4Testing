@@ -30,7 +30,7 @@
                         <td>{{ category.name }}</td>
                         <td><a href="/category/{{ category.id }}">Edit</a></td>
                         <td>
-                            <form action="/category/{{ category.id }}" method="post">
+                            <form action="/category/delete/{{ category.id }}" method="post">
                                 <input type="hidden" name="_METHOD" value="DELETE"/>
                                 <input type="submit" value="Delete"/>
                             </form></td>

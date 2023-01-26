@@ -2,6 +2,7 @@
 declare(strict_types = 1);
 namespace App\Entity;
 
+use App\Contracts\Entities;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping\Column;
@@ -14,7 +15,7 @@ use Doctrine\Common\Collections\Collection;
 
 #[Entity]
 #[Table(name: 'categories')]
-class Category
+class Category implements Entities
 {
     #[Id]
     #[Column(type: 'integer')]

@@ -69,6 +69,6 @@ class CategoryController
     public function delete(Request $request, Response $response, array $params): Response
     {
         $this->categoryService->delete((int) $params['id']);
-        return $response;
+        return $response->withHeader('Location', '/category')->withStatus(302);
     }
 }
