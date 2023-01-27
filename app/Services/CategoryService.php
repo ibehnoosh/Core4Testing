@@ -21,7 +21,7 @@ class CategoryService implements Services
         return $this->update($category, $name);
     }
 
-    public function getAll(): array
+    public function getAll() : array
     {
         return $this->entityManager->getRepository(Category::class)->findAll();
     }

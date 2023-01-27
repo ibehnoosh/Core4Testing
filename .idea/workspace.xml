@@ -169,11 +169,20 @@
       <recent name="C:\wamp64\www\Core\app\Entity\ShoppingCart" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="PHPUnit.CategoryServiceTest">
+    <configuration name="CategoryServiceTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="CategoryServiceTest" file="$PROJECT_DIR$/tests/Unit/CategoryServiceTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHPUnit.CategoryServiceTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -210,7 +219,7 @@
       <workItem from="1674718803965" duration="958000" />
       <workItem from="1674767431743" duration="607000" />
       <workItem from="1674769318673" duration="2123000" />
-      <workItem from="1674840963644" duration="949000" />
+      <workItem from="1674840963644" duration="7329000" />
     </task>
     <servers />
   </component>

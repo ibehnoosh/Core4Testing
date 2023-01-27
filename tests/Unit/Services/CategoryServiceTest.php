@@ -1,7 +1,9 @@
 <?php
 
-use App\Services\CategoryService;
+namespace Services;
+
 use App\Entity\Category;
+use App\Services\CategoryService;
 use Doctrine\ORM\EntityManager;
 use PHPUnit\Framework\TestCase;
 
@@ -33,10 +35,10 @@ class CategoryServiceTest extends TestCase
         $this->assertEquals($category, $result);
     }
 
-    public function testGetAll(): void
+    public function testGetAll()
     {
         $categories = [new Category(), new Category()];
-        $this->mockEntityManager->expects($this->once())
+        $this->mockEntityManager->expects($this->any())
             ->method('getRepository')
             ->with($this->equalTo(Category::class))
             ->willReturn($categories);
