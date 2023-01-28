@@ -7,6 +7,7 @@ namespace App\Services;
 use App\Contracts\Entities;
 use App\Contracts\Services;
 use App\Entity\Category;
+use App\Entity\Product;
 use Doctrine\ORM\EntityManager;
 
 class ProductService implements Services
@@ -17,8 +18,8 @@ class ProductService implements Services
 
     public function create($name): Category
     {
-        $category = new Category();
-        return $this->update($category, $name);
+        $product = new Product();
+        return $this->update($product, $name);
     }
 
     public function getAll() : array

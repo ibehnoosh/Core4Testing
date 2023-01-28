@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1170790-cb4b-42df-a86d-f7515c7e328e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Services/ProductService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout.twig" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/ProductService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/ProductService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,7 +229,7 @@
       <workItem from="1674769318673" duration="2123000" />
       <workItem from="1674840963644" duration="8065000" />
       <workItem from="1674880246983" duration="725000" />
-      <workItem from="1674890250369" duration="984000" />
+      <workItem from="1674890250369" duration="2765000" />
     </task>
     <servers />
   </component>
