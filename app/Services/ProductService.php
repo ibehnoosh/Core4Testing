@@ -6,6 +6,7 @@ namespace App\Services;
 
 use App\Contracts\Entities;
 use App\Contracts\Services;
+use App\Entity\Category;
 use App\Entity\Product;
 use Doctrine\ORM\EntityManager;
 
@@ -15,10 +16,10 @@ class ProductService implements Services
     {
     }
 
-    public function create($name): Product
+    public function create($data): Product
     {
         $product = new Product();
-        return $this->update($product, $name);
+        return $this->update($product, $data);
     }
 
     public function getAll() : array
@@ -38,9 +39,15 @@ class ProductService implements Services
         return $this->entityManager->find(Product::class, $id);
     }
 
-    public function update(Entities $product, $name): Product
+    public function update(Entities $product, $data): Product
     {
-        $product->setName($name);
+
+        $product->setName($data['name']);
+        $product->setPrice($data['price']);
+        $product->setQuantity($data['quantity']);
+        $product->setCreatedAt();
+        $product->setUpdatedAt();
+        $product->addCategories($data['category'][]);
         $this->entityManager->persist($product);
         $this->entityManager->flush();
         return $product;

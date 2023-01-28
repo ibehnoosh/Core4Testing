@@ -96,9 +96,9 @@ class Product implements Entities
 
     }
 
-    public function setCreatedAt(\DateTime $createdAt)
+    public function setCreatedAt()
     {
-        $this->createdAt = $createdAt;
+        $this->createdAt =new \DateTime("now");
         return $this;
     }
 
@@ -107,9 +107,9 @@ class Product implements Entities
         return $this->updatedAt;
     }
 
-    public function setUpdatedAt(\DateTime $updatedAt): void
+    public function setUpdatedAt(): void
     {
-        $this->updatedAt = $updatedAt;
+        $this->updatedAt = new \DateTime("now");
     }
     //Owning Side of Product Category
     public function addCategories(Category $category):void
@@ -123,9 +123,6 @@ class Product implements Entities
         return $this->categories;
     }
 
-    /**
-     * @return Collection
-     */
     public function getItems(): Collection
     {
         return $this->items;

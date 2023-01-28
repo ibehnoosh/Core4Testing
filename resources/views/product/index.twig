@@ -1,0 +1,48 @@
+{% extends 'layout.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<form action="/product{% if edit.id %}/{{ edit.id }}{% endif %}" method="post">
+    {{ csrf.fields | raw }}
+
+    {% if edit.id %}
+        <input type="text" name="id" hidden value="{{ edit.id }}" />
+    {% endif %}
+    <input type="text" name="name" required  placeholder="Product" value="{{ edit.name }}" />
+    <input type="text" name="price" required  placeholder="Price" value="{{ edit.price }}" />ِِ
+    <input type="text" name="quantity" required  placeholder="Quantity" value="{{ edit.quantity }}" />ِِ
+    <select multiple name="categories">
+
+    </select>
+    <button type="submit" class="btn btn-success">Save
+    </button>
+</form>
+
+    {% if products %}
+        <div id="categoriesTable">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for Product in products %}
+                    <tr>
+                        <td>{{ Product.name }}</td>
+                        <td><a href="/product/{{ Product.id }}">Edit</a></td>
+                        <td>
+                            <form action="/product/delete/{{ Product.id }}" method="post">
+                                <input type="hidden" name="_METHOD" value="DELETE"/>
+                                <input type="submit" value="Delete"/>
+                            </form></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+    {% endblock %}
