@@ -2,6 +2,7 @@
 declare(strict_types = 1);
 namespace App\Entity;
 
+use App\Contracts\Entities;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\DBAL\Types\Types;
@@ -18,7 +19,7 @@ use Doctrine\ORM\Mapping\Table;
 #[Entity]
 #[Table(name: 'product')]
 #[HasLifecycleCallbacks]
-class Product
+class Product implements Entities
 {
     #[Id]
     #[Column(type: 'integer')]
