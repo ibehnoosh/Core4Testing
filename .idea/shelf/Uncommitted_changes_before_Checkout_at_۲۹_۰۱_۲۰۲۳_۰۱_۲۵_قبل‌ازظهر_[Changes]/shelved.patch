@@ -1,0 +1,29 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -2,10 +2,7 @@
+ <project version="4">
+   <component name="ChangeListManager">
+     <list default="true" id="e1170790-cb4b-42df-a86d-f7515c7e328e" name="Changes" comment="">
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/app/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/ProductController.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/app/Services/ProductService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/ProductService.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/resources/views/product/index.twig" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/product/index.twig" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -231,7 +228,7 @@
+       <workItem from="1674769318673" duration="2123000" />
+       <workItem from="1674840963644" duration="8065000" />
+       <workItem from="1674880246983" duration="725000" />
+-      <workItem from="1674890250369" duration="16475000" />
++      <workItem from="1674890250369" duration="16823000" />
+     </task>
+     <servers />
+   </component>

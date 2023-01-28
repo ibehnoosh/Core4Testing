@@ -1,0 +1,14 @@
+Index: README.md
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/README.md b/README.md
+--- a/README.md	
++++ b/README.md	
+@@ -1,1 +1,3 @@
+-### Implement a Basic Core To Practice Real things!
+\ No newline at end of file
++### Implement a Basic Core To Practice Real things!
++
++#### Use SLim , Doctrine , Twig
