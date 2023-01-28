@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Entity\Category;
+use App\Services\CategoryService;
 use App\Services\productService;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -12,6 +14,7 @@ class ProductController
     public function __construct(
         private readonly Twig $twig,
         private readonly ProductService $productService,
+        private readonly CategoryService $categoryService,
     )
     {
     }
@@ -23,7 +26,8 @@ class ProductController
             $response,
             'product/index.twig',
             [
-                'categories' => $this->productService->getAll(),
+                'products' => $this->productService->getAll(),
+                'categories' => $this->categoryService->getAll(),
             ]
         );
     }

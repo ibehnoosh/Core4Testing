@@ -12,11 +12,16 @@
     <input type="text" name="name" required  placeholder="Product" value="{{ edit.name }}" />
     <input type="text" name="price" required  placeholder="Price" value="{{ edit.price }}" />ِِ
     <input type="text" name="quantity" required  placeholder="Quantity" value="{{ edit.quantity }}" />ِِ
-    <select multiple name="categories">
-
+    <select class="form-control" id="categories" multiple name="categories[]">
+        {% for category in categories %}
+            {% set selected = '' %}
+            {% if product.category == product.category %}
+                {% set selected = 'selected' %}
+            {% endif %}
+            <option value="{{category.id}}" {{ selected }}>{{category.name}}</option>
+        {% endfor %}
     </select>
-    <button type="submit" class="btn btn-success">Save
-    </button>
+    <button type="submit" class="btn btn-success">Save</button>
 </form>
 
     {% if products %}

@@ -24,6 +24,7 @@ class ProductService implements Services
 
     public function getAll() : array
     {
+
         return $this->entityManager->getRepository(Product::class)->findAll();
     }
 
@@ -47,7 +48,12 @@ class ProductService implements Services
         $product->setQuantity($data['quantity']);
         $product->setCreatedAt();
         $product->setUpdatedAt();
-        $product->addCategories($data['category'][]);
+        foreach ($data['categories'] as $category)
+        {
+            $product->addCategories($category);
+        }
+
+
         $this->entityManager->persist($product);
         $this->entityManager->flush();
         return $product;
