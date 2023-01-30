@@ -112,10 +112,11 @@ class Product implements Entities
         $this->updatedAt = new \DateTime("now");
     }
     //Owning Side of Product Category
-    public function addCategories(Category $category):void
+    public function addCategories(Category $category): Product
     {
         $category->addProduct($this); // synchronously updating inverse side
         $this->categories[] = $category;
+        return $this;
     }
 
     public function getCategories(): ArrayCollection|Collection

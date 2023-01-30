@@ -50,6 +50,7 @@ class ProductService implements Services
         $product->setUpdatedAt();
         foreach ($data['categories'] as $category)
         {
+            var_dump($category);
             $product->addCategories($category);
         }
 
